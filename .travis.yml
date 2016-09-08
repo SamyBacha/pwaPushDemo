@@ -8,7 +8,7 @@ node_js:
 - stable
 env:
   global:
-  - GH_REF: github.com/.../simple-push-demo.git
+  - GH_REF: https://github.com/SamyBacha/pwaPushDemo.git
 
 before_install:
   # Get firefox beta and extract to tar for the test runner to use.

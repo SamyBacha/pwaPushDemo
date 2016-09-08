@@ -31,7 +31,7 @@ if [ "$BASH_VERSION" = '' ]; then
  exit 1;
 fi
 
-GITHUB_REPO=$(git config --get remote.origin.url)
+GITHUB_REPO=$(git config --get https://github.com/SamyBacha/pwaPushDemo.git)
 
 if [ "$TRAVIS" ]; then
   if [[ "$TRAVIS_BRANCH" != "master" || "$TRAVIS_PULL_REQUEST" != "false" ]]; then

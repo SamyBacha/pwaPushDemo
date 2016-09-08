@@ -1,7 +1,7 @@
 'use strict';
 
 /* eslint-env browser */
-const url = "http://localhost:8080";
+const url = "http://172.16.148.101:8080";
 let method = "POST";
 
 let async = true;
