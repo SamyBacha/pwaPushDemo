@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Simple Push Demo</title>
+
+  <meta name="theme-color" content="#2effff">
+
+  <link rel="manifest" href="./manifest.json">
+
+  <link rel="shortcut icon" href="./images/logo-32x32.png">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+
+  <!-- Page styles -->
+  <link rel="stylesheet" href="./styles/main.css">
+  
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Push Demo</span>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <!-- This needs fixing -->
+          <!-- <a class="mdl-navigation__link" href="/encryption-test.html">Encryption Tests</a> -->
+      
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div id="push-toggle-switch" class="push-switch-container js-push-switch-container">
+
+        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect js-push-toggle-switch" for="switch-2">
+          <input type="checkbox" id="switch-2" class="mdl-switch__input" disabled>
+          <span class="mdl-switch__label">Enable Push Notifications</span>
+        </label>
+      </div>
+
+	  <br/>
+
+      <div id="addArticle" class="content-overlap-wrapper">
+          <p class="center js-xhr-button-container">
+			<div class="form-group">
+			  <textarea class="form-control" rows="5" id="texta"></textarea>
+			</div>
+            <button id="addArticleButton" class="xhr-button js-send-push-button mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+              Ajouter article
+            </button>
+          </p>
+
+      </div>
+		
+        <div class="error-message-container js-error-message-container">
+          <h1 class="error-title js-error-title"></h1>
+          <p class="error-message js-error-message"></p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="./scripts/encryption/helpers.js"></script>
+  <script src="./scripts/encryption/hmac.js"></script>
+  <script src="./scripts/encryption/hkdf.js"></script>
+  <script src="./scripts/encryption/encryption-factory.js"></script>
+  <script src="./scripts/libs/snippets.js"></script>
+  <script src="./scripts/push-client.js"></script>
+  <script src="./scripts/app-controller.js"></script>
+  <script src="./scripts/main.js"></script>
+  <script>
+	if (window.location.href.search('user') > 0 ) {
+		document.getElementById('addArticle').style.display = 'none';
+	}
+	if (window.location.href.search('admin') > 0 ) {
+		document.getElementById('push-toggle-switch').style.display = 'none';
+	}
+	
+	$('#addArticleButton').attr('disabled', true);
+		$('input[type="text"],textarea').on('keyup',function() {
+			var textarea_value = $("#texta").val();
+			var text_value = $('input[name="textField"]').val();
+			if(textarea_value != '' && text_value != '') {
+				$('#addArticleButton').attr('disabled' , false);
+			}else{
+				$('#addArticleButton').attr('disabled' , true);
+			}
+		});
+	
+  </script>
+
+</body>
+</html>

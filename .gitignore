@@ -1,0 +1,6 @@
+node_modules/
+frontend/dist/styleguide/
+.tmp/
+build/
+test/output/
+wires
