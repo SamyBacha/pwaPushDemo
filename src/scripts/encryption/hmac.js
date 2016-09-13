@@ -17,8 +17,8 @@ class HMAC {
 }
 
 if (typeof window !== 'undefined') {
-  window.gauntface = window.gauntface || {};
-  window.gauntface.HMAC = HMAC;
+  window.sba = window.sba || {};
+  window.sba.HMAC = HMAC;
 } else if (module && module.exports) {
   module.exports = HMAC;
 }

@@ -518,7 +518,7 @@ class EncryptionHelperFactory {
 }
 
 if (typeof window !== 'undefined') {
-  window.gauntface = window.gauntface || {};
-  window.gauntface.EncryptionHelperFactory = EncryptionHelperFactory;
-  window.gauntface.EncryptionHelper = EncryptionHelper;
+  window.sba = window.sba || {};
+  window.sba.EncryptionHelperFactory = EncryptionHelperFactory;
+  window.sba.EncryptionHelper = EncryptionHelper;
 }

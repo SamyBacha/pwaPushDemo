@@ -28,8 +28,8 @@ class HKDF {
 }
 
 if (typeof window !== 'undefined') {
-  window.gauntface = window.gauntface || {};
-  window.gauntface.HKDF = HKDF;
+  window.sba = window.sba || {};
+  window.sba.HKDF = HKDF;
 } else if (module && module.exports) {
   module.exports = HKDF;
 }
