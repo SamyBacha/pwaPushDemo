@@ -1,7 +1,7 @@
 'use strict';
 
 /* eslint-env browser */
-const url = "http://172.16.148.101:8080";
+const url = "https://simple-push-demo.appspot.com/api/v2/sendpush";
 let method = "POST";
 
 let async = true;
@@ -38,7 +38,9 @@ request.onreadystatechange = function() {
 
 
 function sendToBack (sendObject, path) {
-	
+	console.log(sendObject);
+	console.log(url+path);
+
 	request.open(method, url+path, async);
 	request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 	return request.send(sendObject);
