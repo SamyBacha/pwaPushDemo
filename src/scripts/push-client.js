@@ -1,7 +1,7 @@
 'use strict';
 
 /* eslint-env browser */
-const url = "https://simple-push-demo.appspot.com/api/v2/sendpush";
+const url = "https://8080-dot-2147616-dot-devshell.appspot.com";
 let method = "POST";
 
 let async = true;
