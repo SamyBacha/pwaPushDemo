@@ -1,7 +1,7 @@
 'use strict';
 
 /* eslint-env browser */
-const url = "https://8080-dot-2147616-dot-devshell.appspot.com";
+const url = "https://push-notifications-142109.appspot.com/";
 let method = "POST";
 
 let async = true;
